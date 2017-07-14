@@ -9,6 +9,9 @@ gradle-app.setting
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 
+# wsdl2java generated files
+/src/main/generated
+
 # Cache of project
 .gradletasknamecache
 

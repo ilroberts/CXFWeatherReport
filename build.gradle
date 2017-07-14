@@ -1,7 +1,19 @@
 group 'com.ilroberts'
 version '1.0-SNAPSHOT'
 
+buildscript{
+    repositories{
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.nils:wsdl2java:0.10'
+    }
+}
+apply plugin: 'no.nils.wsdl2java'
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -9,6 +21,18 @@ repositories {
     mavenCentral()
 }
 
+mainClassName = "com.ilroberts.Main"
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+wsdl2javaExt {
+    deleteGeneratedSourcesOnClean = false
+}
+
+wsdl2java {
+    generatedWsdlDir = file("src/main/generated")  // target directory for generated source coude
+    wsdlDir = file("src/main/resources/wsdls") // define to support incremental build
+    wsdlsToGenerate = [['src/main/resources/wsdls/globalweather.wsdl']]
 }

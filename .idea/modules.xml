@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CXFDemo.iml" filepath="$PROJECT_DIR$/.idea/modules/CXFDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CXFDemo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CXFDemo_main.iml" group="CXFDemo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CXFDemo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CXFDemo_test.iml" group="CXFDemo" />
     </modules>
   </component>
 </project>
