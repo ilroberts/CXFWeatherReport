@@ -1,0 +1,32 @@
+package com.ilroberts.dto;
+
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+
+@XmlRootElement(name = "Table")
+public class TableDTO implements Serializable {
+
+    @XmlElement
+    private String Country;
+
+    @XmlElement
+    private String City;
+
+    public void setCountry(String country) {
+        this.Country = country;
+    }
+
+    public void setCity(String city) {
+        this.City = city;
+    }
+
+    public String getCountry(){
+        return Country;
+    }
+
+    public String getCity() {
+        return City;
+    }
+}
