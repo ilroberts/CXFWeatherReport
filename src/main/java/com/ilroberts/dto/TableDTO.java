@@ -8,25 +8,25 @@ import java.io.Serializable;
 @XmlRootElement(name = "Table")
 public class TableDTO implements Serializable {
 
-    @XmlElement
-    private String Country;
+    @XmlElement(name = "Country")
+    private String country;
 
-    @XmlElement
-    private String City;
+    @XmlElement(name = "City")
+    private String city;
 
     public void setCountry(String country) {
-        this.Country = country;
+        this.country = country;
     }
 
     public void setCity(String city) {
-        this.City = city;
+        this.city = city;
     }
 
     public String getCountry(){
-        return Country;
+        return country;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 }

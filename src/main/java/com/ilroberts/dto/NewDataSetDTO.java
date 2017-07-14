@@ -9,19 +9,19 @@ import java.util.List;
 @XmlRootElement(name = "NewDataSet")
 public class NewDataSetDTO implements Serializable {
 
-    @XmlElement
-    private List<TableDTO> Table;
+    @XmlElement(name = "Table")
+    private List<TableDTO> table;
 
     public NewDataSetDTO() {
-        Table = new ArrayList<>();
+        table = new ArrayList<>();
     }
 
     public List<TableDTO> getTable() {
-        return Table;
+        return table;
     }
 
     public void setTable(List<TableDTO> table){
-        this.Table = table;
+        this.table = table;
     }
 
 }
