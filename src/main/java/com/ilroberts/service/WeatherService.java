@@ -1,19 +1,22 @@
 package com.ilroberts.service;
 
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.inject.Inject;
+import com.ilroberts.model.City;
+import com.ilroberts.receiver.Receiver;
+
+import java.util.List;
 
 public class WeatherService {
 
-    private final XmlMapper mapper;
+    private final Receiver<List<City>> receiver;
 
     @Inject
-    WeatherService(XmlMapper mapper) {
-        this.mapper = mapper;
+    WeatherService(Receiver<List<City>> receiver) {
+        this.receiver = receiver;
     }
 
-    public void getCitiesFromCountry() {
+    public List<City> getCitiesFromCountry() {
 
-        // do stuff
+        return receiver.receive();
     }
 }

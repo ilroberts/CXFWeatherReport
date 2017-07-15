@@ -1,29 +1,24 @@
 package com.ilroberts;
 
-import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
-import com.ilroberts.dto.NewDataSetDTO;
-import net.webservicex.GlobalWeather;
-import net.webservicex.GlobalWeatherSoap;
-
-import java.io.IOException;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
+import com.ilroberts.service.WeatherService;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        GlobalWeather weather = new GlobalWeather();
-        GlobalWeatherSoap soapRequest = weather.getGlobalWeatherSoap();
+        Injector injector = Guice.createInjector(new WeatherModule());
 
-        String cities = soapRequest.getCitiesByCountry("United Kingdom");
+        //WeatherService weatherService = injector.getInstance(WeatherService.class);
 
-        JacksonXmlModule module = new JacksonXmlModule();
-        module.setDefaultUseWrapper(false);
-        XmlMapper mapper = new XmlMapper(module);
-        mapper.registerModule(new JaxbAnnotationModule());
+        WeatherService weatherService =
+                injector.getInstance(Key.get(new TypeLiteral<WeatherService>() {}));
 
-        NewDataSetDTO dataset = mapper.readValue(cities, NewDataSetDTO.class);
-        System.out.println("number of cities returned = " + dataset.getTable().size());
+        int cityCount = weatherService.getCitiesFromCountry().size();
+        System.out.println("number of cities = " + cityCount);
+
     }
 }

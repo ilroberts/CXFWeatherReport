@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class TableToCityMapper {
 
-    public Optional<City> mapTableToCity(TableDTO table) {
+    public static Optional<City> mapTableToCity(TableDTO table) {
 
         if(table != null) {
 
