@@ -12,8 +12,6 @@ public class Main {
 
         Injector injector = Guice.createInjector(new WeatherModule());
 
-        //WeatherService weatherService = injector.getInstance(WeatherService.class);
-
         WeatherService weatherService =
                 injector.getInstance(Key.get(new TypeLiteral<WeatherService>() {}));
 
