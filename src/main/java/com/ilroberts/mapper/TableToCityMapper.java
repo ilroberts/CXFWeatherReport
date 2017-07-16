@@ -6,9 +6,9 @@ import com.ilroberts.model.City;
 
 import java.util.Optional;
 
-public class TableToCityMapper {
+public class TableToCityMapper implements Mapper<TableDTO, City> {
 
-    public static Optional<City> mapTableToCity(TableDTO table) {
+    public Optional<City> map(TableDTO table) {
 
         if(table != null) {
 
